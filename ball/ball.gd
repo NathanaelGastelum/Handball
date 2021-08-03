@@ -6,7 +6,7 @@ signal hit
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	apply_impulse(Vector2(),Vector2(-100,0))
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -17,4 +17,5 @@ func _ready():
 func _on_Ball_body_entered(body):
 	if body is KinematicBody2D:
 		emit_signal("hit")
-		apply_impulse(Vector2(),Vector2(-100,0))
+		if Input.is_action_pressed("hit"):
+			apply_impulse(Vector2(),Vector2(-1000,0))
