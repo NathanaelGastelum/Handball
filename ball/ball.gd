@@ -1,8 +1,8 @@
 extends RigidBody2D
 
-
 # Declare member variables here. 
-signal hit
+export var speed = 100
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -10,12 +10,12 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(_delta):
+	if Input.is_action_just_pressed("hit"):
+		print("hit pressed 2")
+		rotation = get_global_mouse_position().angle_to_point(position)
+		apply_impulse(Vector2(), Vector2(speed, 0).rotated(rotation)) # TODO: fix this
 
 
-func _on_Ball_body_entered(body):
-	if body is KinematicBody2D:
-		emit_signal("hit")
-		if Input.is_action_pressed("hit"):
-			apply_impulse(Vector2(),Vector2(-1000,0))
+func _on_Hurtbox_area_entered(_area):
+	pass

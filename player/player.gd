@@ -1,9 +1,9 @@
 extends KinematicBody2D
 
-const WALK_FORCE = 600
-const WALK_MAX_SPEED = 200
-const STOP_FORCE = 1300
-const JUMP_SPEED = 200
+export var WALK_FORCE = 600
+export var WALK_MAX_SPEED = 200
+export var STOP_FORCE = 1300
+export var JUMP_SPEED = 200
 
 var velocity = Vector2()
 
