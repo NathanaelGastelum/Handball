@@ -11,11 +11,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if Input.is_action_just_pressed("hit"):
-		print("hit pressed 2")
-		rotation = get_global_mouse_position().angle_to_point(position)
-		apply_impulse(Vector2(), Vector2(speed, 0).rotated(rotation)) # TODO: fix this
-
+	pass
 
 func _on_Hurtbox_area_entered(_area):
-	pass
+	rotation = get_global_mouse_position().angle_to_point(position)
+	# TODO: fix impluse so ball can be returned in one hit
+	apply_impulse(Vector2(), Vector2(speed, 0).rotated(rotation))

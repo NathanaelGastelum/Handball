@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+signal hit
+
 export var WALK_FORCE = 600
 export var WALK_MAX_SPEED = 200
 export var STOP_FORCE = 1300
@@ -30,3 +32,7 @@ func _physics_process(delta):
 	# Check for jumping. is_on_floor() must be called after movement code.
 	if is_on_floor() and Input.is_action_just_pressed("jump"):
 		velocity.y = -JUMP_SPEED
+	
+	# Check for hit, enable Hitbox
+	if Input.is_action_just_pressed("hit"):
+		emit_signal("hit")
